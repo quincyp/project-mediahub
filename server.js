@@ -1,5 +1,6 @@
 /* ==== External Modules  ==== */
 const express = require("express");
+const methodOverride = require("method-override");
 
 /* ==== Internal Modules  ==== */
 
@@ -13,7 +14,10 @@ app.set("view engine", "ejs");
 
 /* ==== Middleware ==== */
 app.use(express.static(__dirname + '/public'));
-
+app.use(express.urlencoded({ //middleware handling body data
+    extended: true
+}));
+app.use(methodOverride("_method"));
 
 /* ==== Routes/Controllers  ==== */
 //Home Routes
