@@ -15,7 +15,12 @@ const router = express.Router();
   * Delete - DELETE - /movies/:id  - Functional - Deletes movie by id from request
 */
 
+// Index
+router.get("/", function(req, res) {
+    res.send("Index");
+});
 
+// New
 
 
 module.exports = router;
