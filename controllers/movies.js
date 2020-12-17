@@ -21,6 +21,34 @@ router.get("/", function(req, res) {
 });
 
 // New
+router.get("/new", function(req, res) {
+    res.send("New");
+});
+
+// Show
+router.get("/:id", function(req, res) {
+    res.send({ id: req.params.id });
+});
+
+// Create
+router.post("/", function(req, res) {
+    res.send({ body: req.body, message: "Create" });
+});
+
+// Edit
+router.get("/:id/edit", function(req, res) {
+    res.send("Edit form");
+});
+
+// Update
+router.put("/:id", function(req, res) {
+    res.send( {id: req.params.id, body: req.body });
+});
+
+// Delete
+router.delete("/:id", function(req, res) {
+    res.send( {id: req.params.id, message: "Delete" });
+});
 
 
 module.exports = router;
