@@ -3,6 +3,7 @@ const express = require("express");
 const methodOverride = require("method-override");
 
 /* ==== Internal Modules  ==== */
+const controllers = require("./controllers");
 
 /* ==== Instanced Modules  ==== */
 const app = express();
@@ -24,6 +25,9 @@ app.use(methodOverride("_method"));
 app.get("/", function(req, res) {
     res.render("home");
 });
+
+// Movies Controller
+app.use("/movies", controllers.movies);
 
 
 /* ==== Server Listener  ==== */
