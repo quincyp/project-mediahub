@@ -2,6 +2,9 @@ const express = require("express");
 
 const router = express.Router();
 
+//internal modules
+const db = require("../models");
+
 // base route /movies
 
 // Rest Routes
@@ -16,8 +19,17 @@ const router = express.Router();
 */
 
 // Index
-router.get("/", function(req, res) {
-    res.send("Index");
+router.get("/", async function(req, res) {
+
+    try {
+        const allMovies = await db.Movie.find({});
+
+        const context = {movies: allMovies}
+        return res.render("movies/index", context);
+
+    } catch(err) {
+        return res.send(err);
+    }
 });
 
 // New
