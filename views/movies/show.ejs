@@ -19,7 +19,15 @@
     
     <h3><%= movie.name %> <%= movie.year %></h3>
     <p><%= movie.details %> </p>
-        <a href = "/comments"> submit your comments </a>
+     
+        <form action="/comments/<%= movie._id %>?_method=PUT" method="POST" maximumlenghth=50>
+            <p>
+                <input type="text" comment="comment" value="<%=movie.comment%>" />
+            </p>
+            
+    
+            <input type="submit" value="Submit Comment" />
+        </form>
     
     
 </body>
