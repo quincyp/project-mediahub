@@ -1,0 +1,16 @@
+body {
+    background-color: #1f1f1f;
+    background-image: url("../resources/movie-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* color: whitesmoke; */
+    /* display: flex; */
+    /* align-items: center; */
+    min-height: 100vh;
+    min-width: 100vw;
+    /* backdrop-filter: brightness(30%) saturate(30%); */
+    /* flex-flow: row wrap; */
+    /* flex-direction: column; */
+    /* text-align: center; */
+}
