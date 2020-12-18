@@ -21,6 +21,7 @@ mongoose.connection.on("disconnected", function(){
 });
 
 module.exports = {
-    Movie: require("./Movie")
+    Movie: require("./Movie"),
+    Comment: require("./Comment")
 };
 

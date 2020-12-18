@@ -28,6 +28,7 @@ app.get("/", function(req, res) {
 
 // Movies Controller
 app.use("/movies", controllers.movies);
+app.use("/comments", controllers.comments);
 
 
 /* ==== Server Listener  ==== */
