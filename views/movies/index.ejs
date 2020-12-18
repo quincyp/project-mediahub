@@ -18,7 +18,11 @@
     
     <h3>List of All Movies</h3>
     <ul>
-        <li>Example Movie</li>
+        <% movies.forEach(movie => { %>
+            <li>
+                <a href="/movies/<%= movie._id %>"><%= movie.name %></a>
+            </li>
+        <% }) %>
     </ul>
 </body>
 </html>
