@@ -76,10 +76,17 @@ router.get("/:id/edit", function (req, res) {
 
 // Update
 router.put("/:id", function (req, res) {
-    res.send({
-        id: req.params.id,
-        body: req.body
-    });
+    db.Movie.findByIdAndUpdate(
+        req.params.id, {
+            ...req.body
+        }, {
+            new: true
+        },
+        function (err, updatedMovie) {
+            if (err) return res.send(err);
+            return res.redirect(`/movies/${updatedMovie._id}`);
+        }
+    );
 });
 
 // Delete
