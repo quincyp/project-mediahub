@@ -38,8 +38,14 @@ router.get("/new", function(req, res) {
 });
 
 // Show
-router.get("/:id", function(req, res) {
-    res.send({ id: req.params.id });
+router.get("/:id", async function(req, res) {
+    try {
+        const foundMovie = await db.Movie.findById(req.params.id).populate("movies");
+        const context = { movie: foundMovie };
+        return res.render("movies/show", context);
+    } catch(err) {
+        return res.send(err);
+    }
 });
 
 // Create
