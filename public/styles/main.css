@@ -4,11 +4,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* color: whitesmoke; */
-    /* display: flex; */
-    /* align-items: center; */
+    color: whitesmoke;
     min-height: 100vh;
     min-width: 100vw;
+    /* display: flex; */
+    /* align-items: center; */
     /* backdrop-filter: brightness(30%) saturate(30%); */
     /* flex-flow: row wrap; */
     /* flex-direction: column; */
