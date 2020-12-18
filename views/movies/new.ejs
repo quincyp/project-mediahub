@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Specific</title>
+    <title>Add New</title>
 
     <!-- Link CSS -->
     <link rel="stylesheet" href="/styles/main.css">
@@ -14,9 +14,11 @@
 <body>
     <a href="/movies/">View All</a>
     <a href="/movies/new">Add New Title</a>
-    <h1>Movie Hub - Show</h1>
+    <h1>Movie Hub - Add New</h1>
     
-    <h3>Specific Movie Title</h3>
-    <p>Details go here</p>
+    <form action="/movies" method="POST">
+        <input type="text" name="name" placeholder="Movie Name" />
+        <input type="submit" value="Create" />
+    </form>
 </body>
 </html>
