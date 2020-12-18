@@ -43,8 +43,13 @@ router.get("/:id", function(req, res) {
 });
 
 // Create
-router.post("/", function(req, res) {
-    res.send({ body: req.body, message: "Create" });
+router.post("/", async function(req, res) {
+    try {
+        await db.Movie.create(req.body);
+        return res.redirect("/movies");
+    } catch(err) {
+        return res.send(err);
+    }
 });
 
 // Edit
