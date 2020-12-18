@@ -34,7 +34,7 @@ router.get("/", async function(req, res) {
 
 // New
 router.get("/new", function(req, res) {
-    res.send("New");
+    res.render("movies/new");
 });
 
 // Show
