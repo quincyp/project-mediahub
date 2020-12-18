@@ -90,11 +90,15 @@ router.put("/:id", function (req, res) {
 });
 
 // Delete
-router.delete("/:id", function (req, res) {
-    res.send({
-        id: req.params.id,
-        message: "Delete"
-    });
+router.delete("/:id", async function (req, res) {
+
+    try {
+        const deletedMovie = await db.Movie.findByIdAndDelete(req.params.id);
+        return res.redirect("/movies");
+    } catch (err) {
+        return res.send(err);
+    }
+
 });
 
 
