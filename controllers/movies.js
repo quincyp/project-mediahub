@@ -42,7 +42,8 @@ router.get("/new", function (req, res) {
 // Show
 router.get("/:id", async function (req, res) {
     try {
-        const foundMovie = await db.Movie.findById(req.params.id).populate("movies");
+        const foundMovie = await db.Movie.findById(req.params.id).populate("comment");
+        console.log(foundMovie);
         const context = {
             movie: foundMovie
         };

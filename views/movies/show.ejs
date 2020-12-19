@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
     <script src="/scripts/app.js"></script>
 
 </head>
+
 <body>
     <!-- NavBar -->
     <%- include("./includes/include-nav.ejs") %>
@@ -28,7 +30,31 @@
                 <p class="lead text-muted">Full Details/Comments of the Movie</p>
                 
                 <h3><%= movie.name %> <%= movie.year %></h3>
-                <p><%= movie.details %></p>
+                <p><%= movie.details %> </p>
+
+                <form action="/comments/newcomment/<%= movie._id %>" method="POST">
+
+                    <p><input type="text" name="title" placeholder="title" /></p>
+
+                    <p></p><input type="text" name="body" placeholder="body" /></p>
+
+                    <p></p><input type="text" name="author" placeholder="author" /></p>
+
+                    <input type="submit" value="Submit Comment" />
+                </form>
+
+                <h1> Comments: </h1>
+
+
+                <ul>
+                    <% movie.comment.forEach(comment => { %>
+                    <li>
+                        <p><a href="/comments/<%= movie._id %>"><%= comment.title %>--<%=comment.body%>--<%=comment.author%></a></p>
+
+                    </li>
+                    <% }) %>
+
+                </ul>
 
             </div>
             </div>
