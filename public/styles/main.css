@@ -15,6 +15,9 @@ body {
     /* text-align: center; */
 }
 
+h1 {
+    color: whitesmoke;
+}
 .py-5 {
     /* padding-top: 3rem!important; */
     padding-bottom: 0.1rem!important;
