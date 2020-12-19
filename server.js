@@ -22,7 +22,7 @@ app.use(methodOverride("_method"));
 
 /* ==== Routes/Controllers  ==== */
 //Home Routes
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
     res.render("home");
 });
 
@@ -32,6 +32,6 @@ app.use("/comments", controllers.comments);
 
 
 /* ==== Server Listener  ==== */
-app.listen(PORT, function() {
+app.listen(PORT, function () {
     console.log(`MovieHub is live at http://localhost:${PORT}/`);
 });
