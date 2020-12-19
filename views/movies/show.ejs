@@ -24,21 +24,26 @@
 
     <form action="/comments/newcomment/<%= movie._id %>" method="POST">
 
-        <p><input type="text" name="title" placeholder="title"/></p>
+        <p><input type="text" name="title" placeholder="title" /></p>
 
-        <p></p><input type="text" name="body" placeholder="body"/></p>
+        <p></p><input type="text" name="body" placeholder="body" /></p>
+
+        <p></p><input type="text" name="author" placeholder="author" /></p>
 
         <input type="submit" value="Submit Comment" />
- </form>
-        
-<ul>  
-<% movie.comment.forEach(comment => { %>
- <h1><%=comment.title %>--<%=comment.body %></h1>
-<% }) %>
+    </form>
+
+    <h1> Comments: </h1>
 
 
-</ul> 
+    <ul>
+        <% movie.comment.forEach(comment => { %>
+        <li>
+            <p><a href="/comments/<%= movie._id %>"><%= comment.title %>--<%=comment.body%>--<%=comment.author%></a></p>
+
+        </li>
+        <% }) %>
+
+    </ul>
 
 </body>
-
-</html>
