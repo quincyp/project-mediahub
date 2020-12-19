@@ -4,7 +4,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color: whitesmoke;
+    /* color: whitesmoke; */
     min-height: 100vh;
     min-width: 100vw;
     /* display: flex; */
@@ -13,4 +13,9 @@ body {
     /* flex-flow: row wrap; */
     /* flex-direction: column; */
     /* text-align: center; */
+}
+
+.py-5 {
+    /* padding-top: 3rem!important; */
+    padding-bottom: 0.1rem!important;
 }

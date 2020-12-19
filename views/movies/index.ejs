@@ -17,23 +17,90 @@
 
 </head>
 <body>
-    <a href="/">Home</a>
-    <a href="/movies/">View All</a>
-    <a href="/movies/new">Add New Title</a>
-    <h1>Movie Hub - Index</h1>
-    
-    <h3>List of All Movies</h3>
-    <ul>
-        <% movies.forEach(movie => { %>
-            <li>
-                <a href="/movies/<%= movie._id %>"><%= movie.name %></a>
-                <a href="/movies/<%= movie._id %>/edit">Edit</a>
-                <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete"/>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">MovieHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item active">
+                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/movies/">View All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/movies/new" tabindex="-1">Add New Title</a>
+                </li>
+                </ul>
+                <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-            
-            </li>
-        <% }) %>
-    </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Top Section -->
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">MovieHub - Index</h1>
+                <p class="lead text-muted">List of all movies.</p>
+                <p>
+                <!-- REVIEW: can be button or not already in NAV <a href="#" class="btn btn-primary my-2">View All?</a> -->
+                <!-- REVIEW: can be button or not already in NAV <a href="#" class="btn btn-secondary my-2">Need this?</a> -->
+                </p>
+            </div>
+            </div>
+        </section>
+        
+        <div class="album py-5"> <!-- removed bg-light -->
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    
+                    <!-- Each Card Element Here -->
+                    <% movies.forEach(movie => { %>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><%= movie.name %> Thumbnail</text></svg>
+                
+                            <div class="card-body">
+                                <p class="card-text"><%= movie.name %></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <!-- Edit Button -->
+                                        <a href="/movies/<%= movie._id %>/edit"><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                                        <!-- Delete Button -->
+                                        <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
+                                            <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
+                                        </form>
+                                    </div>
+                                    <!-- REVIEW: Optional text <small class="text-muted">9 mins</small> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+        
+        <footer class="text-muted py-5">
+        <div class="container">
+            <p class="float-end mb-1">
+            <a href="#">Back to top</a>
+            </p>
+            <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+            <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+        </div>
+        </footer>
 </body>
 </html>
