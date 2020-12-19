@@ -44,10 +44,18 @@
                     <% movies.forEach(movie => { %>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><%= movie.name %> Thumbnail</text></svg>
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                                <!-- Thumbnail Text Here -->
+                                <a href="/movies/<%= movie._id %>">
+                                    <%= movie.name %> Thumbnail</text> <!--REVIEW: Not centered, and may not make sense to link on text of image? maybe whole element? -->
+                                </a>
+                            </svg>
                 
                             <div class="card-body">
-                                <p class="card-text"><%= movie.name %></p>
+                                <!-- Movie Name/Show Link Here -->
+                                <a href="/movies/<%= movie._id %>">                    
+                                    <p class="card-text"><%= movie.name %></p>
+                                </a>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <!-- Edit Button -->
@@ -75,8 +83,7 @@
             <p class="float-end mb-1">
             <a href="#">Back to top</a>
             </p>
-            <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-            <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+            <p class="mb-1">Styled using Bootstrap CSS</p>
         </div>
         </footer>
 </body>
