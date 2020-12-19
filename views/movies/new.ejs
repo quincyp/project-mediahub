@@ -19,21 +19,35 @@
 <body>
     <!-- NavBar -->
     <%- include("./includes/include-nav.ejs") %>
-    
-    <h1>Movie Hub - Add New</h1>
-    
-    <form action="/movies" method="POST">
-        <p>
-            <input type="text" name="name" placeholder="Movie Name" />
-        </p>
-        <p>
-            <input type="text" name="details" placeholder="Movie Details" />
-        </p>
-        <p>
-            <input type="text" name="year" placeholder="Movie Year" />
-        </p>
 
-        <input type="submit" value="Create" />
-    </form>
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Movie Hub - Add New</h1>
+                <p class="lead text-muted">List of all movies.</p>
+
+                <!-- Add New Form -->
+                <form action="/movies" method="POST">
+                    <p>
+                        <input type="text" name="name" placeholder="Movie Name" />
+                    </p>
+                    <p>
+                        <input type="text" name="details" placeholder="Movie Details" />
+                    </p>
+                    <p>
+                        <input type="text" name="year" placeholder="Movie Year" />
+                    </p>
+            
+                    <input type="submit" class="btn btn-sm btn-primary" value="Create" />
+                </form>
+
+            </div>
+            </div>
+        </section>
+    
+    
+
+    </main>
 </body>
 </html>
