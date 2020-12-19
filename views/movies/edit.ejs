@@ -5,30 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit</title>
 
+    <!-- Link Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!-- Link CSS -->
     <link rel="stylesheet" href="/styles/main.css">
+
+    <!-- Link Bootstrap required JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <!-- Link Scripts -->
     <script src="/scripts/app.js"></script>
 
 </head>
 <body>
-    <a href="/">Home</a>
-    <a href="/movies/">View All</a>
-    <a href="/movies/new">Add New Title</a>
-    <h1>Movie Hub - Edit <%= movie.name %></h1>
-    
-    <form action="/movies/<%= movie._id %>?_method=PUT" method="POST">
-        <p>
-            <input type="text" name="name" value="<%=movie.name%>" />
-        </p>
-        <p>
-            <input type="text" name="details" value="<%=movie.details%>" />
-        </p>
-        <p>
-            <input type="text" name="year" value="<%=movie.year%>" />
-        </p>
+    <!-- NavBar -->
+    <%- include("./includes/include-nav.ejs") %>
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Movie Hub - Edit</h1>
+                <p class="lead text-muted">Edit the Movie</p>
 
-        <input type="submit" value="Submit Edit" />
-    </form>
+                <!-- Edit Form -->
+                <form action="/movies/<%= movie._id %>?_method=PUT" method="POST">
+                    <p>
+                        <input type="text" name="name" value="<%=movie.name%>" />
+                    </p>
+                    <p>
+                        <input type="text" name="details" value="<%=movie.details%>" />
+                    </p>
+                    <p>
+                        <input type="text" name="year" value="<%=movie.year%>" />
+                    </p>
+
+                    <input type="submit" class="btn btn-sm btn-primary" value="Submit Edit" />
+                </form>
+            </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
