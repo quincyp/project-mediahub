@@ -24,7 +24,7 @@
     <main>
       <h2>List of comments</h2>
       <ul>
-        <% comments.forEach(comment => { %>
+        <% movie.comment.forEach(comment => { %>
         <li>
           <a href="/comments/<%= comment._id %>"> <%= comment.title %> </a>
         </li>
