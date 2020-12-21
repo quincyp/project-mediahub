@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const db = require("../models");
+const { populate } = require("../models/Movie");
 
 // base route is /comments
 
@@ -27,12 +28,18 @@ router.post("/newcomment/:movieid", function (req, res) {
 
 
 
-// // Index
-// router.get("/", function(req,res){
-//     // echo for testing
-//     res.send("Index");
-//   });
-  
+// Index
+router.get("/", function (req, res) {
+	db.Comment.find({}, function (error, foundComments) {
+		if (error) return res.send(error);
+
+		const context = {
+			comments: foundComments,
+		};
+
+		res.render("comments/index", context);
+	});
+});
 //   // New
 //   router.get("/new", function(req,res){
 //     // echo for testing
@@ -41,8 +48,15 @@ router.post("/newcomment/:movieid", function (req, res) {
   
   // Show
   router.get("/:id", function(req,res){
-    // echo for testing
-    res.send({id: req.params.id});
+    db.Comment
+    .findById(req.params.id)
+    .populate("movie")
+    .exec(function (err, foundComment){
+        if (err) return res.send(err);
+        const context = {comment: foundComment};
+         res.render("comments/show", context);
+    });
+   
   });
   
 //   // Create
