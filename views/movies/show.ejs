@@ -49,7 +49,7 @@
                 <ul>
                     <% movie.comment.forEach(comment => { %>
                     <li>
-                        <p><a href="/comments/<%= movie._id %>"><%= comment.title %>--<%=comment.body%>--<%=comment.author%></a></p>
+                        <p><a href="/comments/<%= comment._id %>"><%= comment.title %>--<%=comment.body%>-by-<%=comment.author%></a></p>
 
                     </li>
                     <% }) %>
