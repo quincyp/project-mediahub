@@ -19,11 +19,16 @@ router.get("/", function (req, res) {
 	});
 });
 
-//   // New
-//   router.get("/new", function(req,res){
-//     // echo for testing
-//     res.send("New");
-//   });
+  // New
+  router.get("/new", function(req,res){
+    db.Movie.find({}, function(err, foundMovies) {
+        if (err) return res.send(err);
+
+        const context = {movies: foundMovies,};
+        res.render("comments/new", context);
+        
+  });
+});
 
 // Create
 router.post("/newcomment/:movieid", function (req, res) {
