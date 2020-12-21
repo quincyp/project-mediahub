@@ -94,8 +94,16 @@ router.put("/:id", function (req, res) {
 router.delete("/:id", async function (req, res) {
 
     try {
+
         const deletedMovie = await db.Movie.findByIdAndDelete(req.params.id);
-        await db.Comment.remove({comment:deletedMovie._id});
+        console.log(deletedMovie);
+        await db.Comment.deleteMany({
+            _id:{
+                $in:deletedMovie.comment
+            }});
+
+
+        //await db.Comment.remove({comment:deletedMovie._id});
         return res.redirect("/movies");
     } catch (err) {
         return res.send(err);

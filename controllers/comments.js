@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 const db = require("../models");
-const {
-    populate
-} = require("../models/Movie");
+// const {
+//     populate
+// } = require("../models/Movie");
 
 // base route is /comments
 
@@ -90,36 +90,24 @@ router.post("/newcomment/:movieid", function (req, res) {
     });
 });
 
+// Delete
+router.delete("/:id", function (req, res) {
+   
+	db.Comment.findByIdAndDelete(req.params.id, function (err, deletedComment) {
+        
+        if (err) return res.send(err);
+ 
+		db.Movie.findById(deletedComment.movie, function(err, foundMovie){
+   
+            foundMovie.comment.remove(deletedComment);
+			foundMovie.save();
 
+			return res.redirect(`/movies/${foundMovie._id}`);
+		});
 
-
-
-
-
-
-
-
-//   // Edit
-//   router.get("/:id/edit", function(req,res){
-//     // echo for testing
-//     res.send("Edit Form");
-//   });
-
-//   // Update
-//   router.put("/:id", function(req,res){
-//     // echo for testing
-//     res.send({id: req.params.id, body: req.body});
-//   });
-
-//   // Delete
-//   router.delete("/:id", function(req,res){
-//     // echo for testing
-//     res.send({id: req.params.id, msg: "Delete"});
-//   });
-
-
-
-
+	
+	});
+});
 
 
 
