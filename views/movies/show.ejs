@@ -1,67 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Specific</title>
-
-    <!-- Link Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="/styles/main.css">
-
-    <!-- Link Bootstrap required JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <!-- Link Scripts -->
-    <script src="/scripts/app.js"></script>
-
-</head>
+<!-- Head -->
+<% const context = {title: "Show"} %>
+<%- include("../includes/_head.ejs", context) %>
 
 <body>
+
     <!-- NavBar -->
-    <%- include("./includes/include-nav.ejs") %>
-    
+    <%- include("../includes/_nav.ejs") %>
+
     <main>
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">Movie Hub - Show</h1>
-                <p class="lead text-muted">Full Details/Comments of the Movie</p>
-                
-                <h3><%= movie.name %> <%= movie.year %></h3>
-                <p><%= movie.details %> </p>
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Movie Hub - Show</h1>
+                    <p class="lead text-muted">Full Details/Comments of the Movie</p>
 
-                <form action="/comments/newcomment/<%= movie._id %>" method="POST">
+                    <h3><%= movie.name %> <%= movie.year %></h3>
+                    <p><%= movie.details %> </p>
 
-                    <p><input type="text" name="title" placeholder="title" /></p>
+                    <form action="/comments/newcomment/<%= movie._id %>" method="POST">
 
-                    <p></p><input type="text" name="body" placeholder="body" /></p>
+                        <p><input type="text" name="title" placeholder="title" /></p>
 
-                    <p></p><input type="text" name="author" placeholder="author" /></p>
+                        <p></p><input type="text" name="body" placeholder="body" /></p>
 
-                    <input type="submit" value="Submit Comment" />
-                </form>
+                        <p></p><input type="text" name="author" placeholder="author" /></p>
 
-                <h1> Comments: </h1>
-
-
-                <ul>
+                        <input type="submit" value="Submit Comment" />
+                    </form>
+        </section>
+        <section class="py-5 text-center container">
+            <h1> Comments: </h1>
+                    <!-- COMMENTS Section -->
                     <% movie.comment.forEach(comment => { %>
-                    <li>
-                        <p><a href="/comments/<%= comment._id %>"><%= comment.title %>--<%=comment.body%>-by-<%=comment.author%></a></p>
-                        <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                            <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
-                        </form>
-                    </li>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <!-- Comment/link -->
+                            <p>
+                                <a href="/comments/<%= comment._id %>">
+                                    <%= comment.title %> -by- <%=comment.author%> </a>        
+                            </p>
+                            <p> <%=comment.body%> </p>
+                            <!-- Comment Edit -->
+                            <a href="/comments/<%= comment._id %>/edit"><button type="button"
+                                    class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                            <!-- Comment Delete -->
+                            <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
+                            </form>
+                        </div>
+                    </div>
                     <% }) %>
-                 
-
-                </ul>
-
-            </div>
+                </div>
             </div>
         </section>
     </main>
 </body>
+
 </html>

@@ -70,6 +70,31 @@ router.post("/newcomment/:movieid", function (req, res) {
     });
 });
 
+// Edit
+router.get("/:id/edit", function (req, res) {
+    db.Comment.findById(req.params.id, function (err, foundComment) {
+        if (err) return res.send(err);
+
+        const context = {
+            comment: foundComment
+        };
+        return res.render("comments/edit", context);
+    });
+});
+
+// Update
+router.put("/:id", function(req,res){
+    db.Comment.findByIdAndUpdate(
+        req.params.id, {
+            ...req.body
+        }, { new: true },
+        function (err, updatedComment) {
+            if (err) return res.send(err);
+            return res.redirect(`/movies/${updatedComment.movie}`);
+        }
+    );
+});
+
 // Delete
 router.delete("/:id", function (req, res) {
    
@@ -84,8 +109,6 @@ router.delete("/:id", function (req, res) {
 
 			return res.redirect(`/movies/${foundMovie._id}`);
 		});
-
-	
 	});
 });
 
