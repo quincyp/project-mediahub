@@ -49,27 +49,7 @@ router.get("/:id", function (req, res) {
 
 });
 
-// // Create REVIEW ?remove comments/new cooments allready in movie/show.ejs
-// router.post("/comments", function (req, res) {
 
-// 	db.Comment.create(req.body, function (err, createdComment) {
-// 		if (err) return res.send(err);
-
-//         req.body.movie = req.params.movieid;
-// 		// adds a comment to movie
-// 		db.Movie.findById(createdComment.movie).exec(function(err, foundMovie){
-// 			if (err) return res.send(err);
-//         console.log(createdComment);
-//         console.log(foundMovie);
-// 			foundMovie.comments.push(createdComment);
-// 			foundMovie.save(); 
-
-// 			return res.redirect("/comments");
-// 		});
-
-		
-// 	}); 
-// });
 
 // Create
 router.post("/newcomment/:movieid", function (req, res) {
