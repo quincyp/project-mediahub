@@ -3,7 +3,8 @@ const router = express.Router();
 
 const db = require("../models");
 
-// base route /comments
+// base route is /comments
+
 
 // Create
 router.post("/newcomment/:movieid", function (req, res) {
@@ -26,23 +27,47 @@ router.post("/newcomment/:movieid", function (req, res) {
 
 
 
-// Show
-router.get("/:id", async function (req, res) {
-
-    try {
-
-        const foundComment = await db.Comment.findById(req.params.id).populate("comments");
-
-        const context = {
-            comment: foundComment
-        };
-
-        return res.render("comments/show", context);
-
-    } catch (err) {
-        return res.send(err);
-    }
-});
+// // Index
+// router.get("/", function(req,res){
+//     // echo for testing
+//     res.send("Index");
+//   });
+  
+//   // New
+//   router.get("/new", function(req,res){
+//     // echo for testing
+//     res.send("New");
+//   });
+  
+  // Show
+  router.get("/:id", function(req,res){
+    // echo for testing
+    res.send({id: req.params.id});
+  });
+  
+//   // Create
+//   router.post("/", function(req,res){
+//     // echo for testing
+//     res.send({body: req.body, msg:"Create"});
+//   });
+  
+//   // Edit
+//   router.get("/:id/edit", function(req,res){
+//     // echo for testing
+//     res.send("Edit Form");
+//   });
+  
+//   // Update
+//   router.put("/:id", function(req,res){
+//     // echo for testing
+//     res.send({id: req.params.id, body: req.body});
+//   });
+  
+//   // Delete
+//   router.delete("/:id", function(req,res){
+//     // echo for testing
+//     res.send({id: req.params.id, msg: "Delete"});
+//   });
 
 
 
