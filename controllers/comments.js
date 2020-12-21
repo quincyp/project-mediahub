@@ -99,17 +99,30 @@ router.post("/newcomment/:movieid", function (req, res) {
 
 
 
-//   // Edit
-//   router.get("/:id/edit", function(req,res){
-//     // echo for testing
-//     res.send("Edit Form");
-//   });
+// Edit
+router.get("/:id/edit", function (req, res) {
+    db.Comment.findById(req.params.id, function (err, foundComment) {
+        if (err) return res.send(err);
 
-//   // Update
-//   router.put("/:id", function(req,res){
-//     // echo for testing
-//     res.send({id: req.params.id, body: req.body});
-//   });
+        const context = {
+            comment: foundComment
+        };
+        return res.render("comments/edit", context);
+    });
+});
+
+// Update
+router.put("/:id", function(req,res){
+    db.Comment.findByIdAndUpdate(
+        req.params.id, {
+            ...req.body
+        }, { new: true },
+        function (err, updatedComment) {
+            if (err) return res.send(err);
+            return res.redirect(`/movies/${updatedComment.movie}`);
+        }
+    );
+});
 
 //   // Delete
 //   router.delete("/:id", function(req,res){
