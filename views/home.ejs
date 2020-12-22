@@ -32,31 +32,26 @@
         <h1 class="float-md-start mb-0">Movie Hub - Home </h1>
         <nav class="nav nav-masthead justify-content-center float-md-end">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Features</a> <!-- REVIEW: Remove/Replace -->
-          <a class="nav-link" href="#">Contact</a> <!-- REVIEW: Remove/Replace -->
+
+
+          <% if (user) { %>
+            <div class="nav-link">
+              logged in:<%= user.username %>
+            </div>
+            <form class ="nav-link" action="/logout?_method=DELETE" method="POST">
+              <input type="submit" value="Logout">
+            </form>
+            <a class="nav-link" href="/logout?_method=DELETE">Logout</a>
+
+          <% } else { %>
+            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link" href="/login">Login</a>
+          <% } %>
+
         </nav>
       </div>
     </header>
     <section id="homeLogin">
-      <ul>
-        <% if (user) { %>
-        <div>
-          logged in:<%= user.username %>
-        </div>
-
-        <form action="/logout?_method=DELETE" method="POST">
-          <input type="submit" value="Logout">
-        </form>
-
-        <% } else { %>
-        <li>
-          <a href="/register">Register</a>
-        </li>
-        <li>
-          <a href="/login">Login</a>
-        </li>
-        <% } %>
-      </ul>
     </section>
     <main class="px-3">
       <h1>You Are On the Home Page</h1>
