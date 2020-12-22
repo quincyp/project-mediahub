@@ -1,50 +1,81 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Hub - Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Hub - Home</title>
 
-    <!-- Link Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <!-- Link Custom Cover for this page -->
-    <link href="/styles/cover.css" rel="stylesheet">
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="/styles/main.css">
+  <!-- Link Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- Link Custom Cover for this page -->
+  <link href="/styles/cover.css" rel="stylesheet">
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="/styles/main.css">
 
-    <!-- Link Bootstrap required JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <!-- Link Scripts -->
-    <script src="/scripts/app.js"></script>
+  <!-- Link Bootstrap required JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+  </script>
+  <!-- Link Scripts -->
+  <script src="/scripts/app.js"></script>
 
 </head>
 
 <body class="d-flex h-100 text-center text-white bg-dark">
 
-    <!-- Navigation Header -->
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-        <div>
+  <!-- Navigation Header -->
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
         <h1 class="float-md-start mb-0">Movie Hub - Home </h1>
         <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="#">Features</a> <!-- REVIEW: Remove/Replace -->
-            <a class="nav-link" href="#">Contact</a> <!-- REVIEW: Remove/Replace -->
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" href="#">Features</a> <!-- REVIEW: Remove/Replace -->
+          <a class="nav-link" href="#">Contact</a> <!-- REVIEW: Remove/Replace -->
         </nav>
-        </div>
+      </div>
     </header>
+    <ul>
+
+      <% if (user) { %>
+      <li>
+        <%= user.username %>
+      </li>
+      <li>
+        <a href="/authors">Authors</a>
+      </li>
+      <li>
+        <a href="/articles">Articles</a>
+      </li>
+
+      <form action="/logout?_method=DELETE" method="POST">
+        <input type="submit" value="Logout">
+      </form>
+
+      <% } else { %>
+      <li>
+        <a href="/register">Register</a>
+      </li>
+      <li>
+        <a href="/login">Login</a>
+      </li>
+      <% } %>
+    </ul>
 
     <main class="px-3">
-        <h1>You Are On the Home Page</h1>
-        <p class="lead">Click below to navigate to our main pages</p>
-        <p class="lead">
-          <a href="/movies" class="btn btn-lg btn-secondary fw-bold border-white bg-white">View All Media</a>
-        </p>
-      </main>
+      <h1>You Are On the Home Page</h1>
+      <p class="lead">Click below to navigate to our main pages</p>
+      <p class="lead">
+        <a href="/movies" class="btn btn-lg btn-secondary fw-bold border-white bg-white">View All Media</a>
+      </p>
+    </main>
 
-      <footer class="mt-auto text-white-50">
-        <!-- <p>CSS powered by <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a></a>.</p> -->
-      </footer>
-    </div>
+    <footer class="mt-auto text-white-50">
+      <!-- <p>CSS powered by <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a></a>.</p> -->
+    </footer>
+  </div>
 </body>
+
 </html>
