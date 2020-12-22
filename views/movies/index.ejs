@@ -2,7 +2,7 @@
 <html lang="en">
 
 <!-- Head -->
-<% const context = {title: "Index"} %> 
+<% const context = {title: "Index"} %>
 <%- include("../includes/_head.ejs", context) %>
 
 <body>
@@ -14,46 +14,54 @@
         <!-- Top Section -->
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">MovieHub - Index</h1>
-                <p class="lead text-muted">List of all movies.</p>
-                <p>
-                <!-- REVIEW: can be button or not already in NAV <a href="#" class="btn btn-primary my-2">View All?</a> -->
-                <!-- REVIEW: can be button or not already in NAV <a href="#" class="btn btn-secondary my-2">Need this?</a> -->
-                </p>
-            </div>
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">MovieHub - Index</h1>
+                    <p class="lead text-muted">List of all movies.</p>
+                    <p>
+                        <!-- REVIEW: can be button or not already in NAV <a href="#" class="btn btn-primary my-2">View All?</a> -->
+                        <!-- REVIEW: can be button or not already in NAV <a href="#" class="btn btn-secondary my-2">Need this?</a> -->
+                    </p>
+                </div>
             </div>
         </section>
-        
-        <div class="album py-5"> <!-- removed bg-light -->
+
+        <div class="album py-5">
+            <!-- removed bg-light -->
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    
+
                     <!-- Each Card Element Here -->
                     <% movies.forEach(movie => { %>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                                <!-- Thumbnail Text Here -->
-                                <a href="/movies/<%= movie._id %>">
-                                    <%= movie.name %> Thumbnail</text> <!--REVIEW: Not centered, and may not make sense to link on text of image? maybe whole element? -->
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#55595c" /><text x="25%" y="50%" fill="#eceeef"
+                                    dy=".3em">
+                                    <!-- Thumbnail Text Here -->
+                                    <a href="/movies/<%= movie._id %>">
+                                        <%= movie.name %> Thumbnail</text>
+                                <!--REVIEW: Not centered, and may not make sense to link on text of image? maybe whole element? -->
                                 </a>
                             </svg>
-                
-                            <div class="card-body">
+
+                            <div class="card-body text-center">
                                 <!-- Movie Name/Show Link Here -->
-                                <a href="/movies/<%= movie._id %>">                    
+                                <a href="/movies/<%= movie._id %>">
                                     <p class="card-text"><%= movie.name %></p>
                                 </a>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
+                                   
                                         <!-- Edit Button -->
-                                        <a href="/movies/<%= movie._id %>/edit"><button type="button" class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                                        <a href="/movies/<%= movie._id %>/edit"><button type="button"
+                                                class="btn btn-sm btn-outline-secondary">Edit</button></a>
                                         <!-- Delete Button -->
                                         <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
                                             <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
                                         </form>
-                                    </div>
+                                   
                                     <!-- REVIEW: Optional text <small class="text-muted">9 mins</small> -->
                                 </div>
                             </div>
@@ -66,13 +74,14 @@
             </div>
         </div>
     </main>
-        
-        <footer class="text-muted py-5">
+
+    <footer class="text-muted py-5">
         <div class="container">
             <p class="float-end mb-1">
-            <a href="#">Back to top</a>
+                <a href="#">Back to top</a>
             </p>
         </div>
-        </footer>
+    </footer>
 </body>
+
 </html>

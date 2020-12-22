@@ -14,7 +14,7 @@
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">Movie Hub - Show</h1>
+                    <h1 class="fw-light">MovieHub - Show</h1>
                     <p class="lead text-muted">Full Details/Comments of the Movie</p>
 
                     <h3><%= movie.name %> <%= movie.year %></h3>
@@ -24,32 +24,45 @@
 
                         <p><input type="text" name="title" placeholder="title" /></p>
 
-                        <p></p><input type="text" name="body" placeholder="body" /></p>
+                        <p><input type="text" name="body" placeholder="body" /></p>
 
-                        <p></p><input type="text" name="author" placeholder="author" /></p>
+                        <p><input type="text" name="author" placeholder="author" /></p>
 
                         <input type="submit" value="Submit Comment" />
                     </form>
+                </div>
+            </div>
         </section>
+
         <section class="py-5 text-center container">
-            <h1> Comments: </h1>
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
                     <!-- COMMENTS Section -->
+                    <h1> Comments: </h1>
                     <% movie.comment.forEach(comment => { %>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <!-- Comment/link -->
-                            <p>
+                    
+
+                    <div class="list-group">
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <!-- Comment link -->
                                 <a href="/comments/<%= comment._id %>">
-                                    <%= comment.title %> -by- <%=comment.author%> </a>        
-                            </p>
-                            <p> <%=comment.body%> </p>
-                            <!-- Comment Edit -->
-                            <a href="/comments/<%= comment._id %>/edit"><button type="button"
-                                    class="btn btn-sm btn-outline-secondary">Edit</button></a>
-                            <!-- Comment Delete -->
-                            <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                                <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
-                            </form>
+                                    <h5 class="mb-1"><%= comment.title %> </h5>
+                                </a>
+                                <small class="text-muted">by <%=comment.author%></small>
+                            </div>
+
+                            <p class="mb-1"><%=comment.body%></p>
+
+                            <div class="btn-group">
+                                <!-- Comment Edit -->
+                                <a href="/comments/<%= comment._id %>/edit"><button type="button"
+                                        class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                                <!-- Comment Delete -->
+                                <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                    <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <% }) %>
