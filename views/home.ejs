@@ -37,27 +37,27 @@
         </nav>
       </div>
     </header>
-    <ul>
+    <section id="homeLogin">
+      <ul>
+        <% if (user) { %>
+        <div>
+          logged in:<%= user.username %>
+        </div>
 
-      <% if (user) { %>
-      <p>
-        <%= user.username %>
-      </p>
+        <form action="/logout?_method=DELETE" method="POST">
+          <input type="submit" value="Logout">
+        </form>
 
-      <form action="/logout?_method=DELETE" method="POST">
-        <input type="submit" value="Logout">
-      </form>
-
-      <% } else { %>
-      <li>
-        <a href="/register">Register</a>
-      </li>
-      <li>
-        <a href="/login">Login</a>
-      </li>
-      <% } %>
-    </ul>
-
+        <% } else { %>
+        <li>
+          <a href="/register">Register</a>
+        </li>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+        <% } %>
+      </ul>
+    </section>
     <main class="px-3">
       <h1>You Are On the Home Page</h1>
       <p class="lead">Click below to navigate to our main pages</p>
