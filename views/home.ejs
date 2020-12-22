@@ -40,15 +40,9 @@
     <ul>
 
       <% if (user) { %>
-      <li>
+      <p>
         <%= user.username %>
-      </li>
-      <li>
-        <a href="/authors">Authors</a>
-      </li>
-      <li>
-        <a href="/articles">Articles</a>
-      </li>
+      </p>
 
       <form action="/logout?_method=DELETE" method="POST">
         <input type="submit" value="Logout">

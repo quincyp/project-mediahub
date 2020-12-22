@@ -9,12 +9,12 @@ router.get("/register", function (req, res) {
 });
 
 // Register Post
-router.post("register", async function (req, res) {
+router.post("/register", async function (req, res) {
     try {
         const foundUser = await db.User.findOne({
             email: req.body.email
         });
-        if (foundUser) return res.redirect("/login");
+        if (foundUser) return res.send("/login");
 
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(req.body.password, salt)
@@ -60,3 +60,12 @@ router.post("/login", async function (req, res) {
         return res.send(err);
     }
 });
+
+// Log out - Delete
+
+router.delete("/logout", async function(req, res){
+    await req.session.destroy();
+    res.redirect("/");
+});
+
+module.exports = router;
