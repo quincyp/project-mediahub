@@ -71,6 +71,8 @@ User is also able to add any comments to each movie once added, and those commen
     - remove the background
     - align right on all nav pages -->
 
+- TV DB?
+
 - Delete Comment CRUDs?
     - comment index.ejs
     - comment show.ejs
