@@ -47,8 +47,8 @@ As a user we want create a media hub where users can enter:
 - Fix fully responsive sizing
 
 <!-- - Add Font Awesome Icons -->
-    <!-- -- Add as logo too -->
-    <!-- -- Create/Edit/Delete icon buttons -->
+<!-- -- Add as logo too -->
+<!-- -- Create/Edit/Delete icon buttons -->
 
 <!-- - Redo logout button CSS
     - remove the background
