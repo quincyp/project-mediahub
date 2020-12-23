@@ -38,7 +38,7 @@ As a user we want create a media hub where users can enter:
 
 - Redo logout button CSS
     - remove the background
-    - alight right on all nav pages
+    - align right on all nav pages
 
 - Delete Comment CRUDs?
     - comment index.ejs
