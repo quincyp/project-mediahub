@@ -38,3 +38,11 @@ h1 {
     position: relative;
     position: center;
 }
+
+#logoutButton {
+    background-color: transparent;
+    border-width: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: #fff;
+    font-weight: 700;
+}
