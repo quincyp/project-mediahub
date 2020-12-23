@@ -20,7 +20,10 @@ As a user we want create a media hub where users can enter:
 --Show.ejs no image if logic needs to be added
 --Make index images clickable links
 --Remove image not found fake title
+<!-- --Add login CSS -->
+--Add register CSS
 <!-- --Details text box edit/new -->
+--Increase text area of comment body
 
 - Redo coloring of dark gray text in overall CSS [look at subheading and overview text in particular]
     - Update link colors
