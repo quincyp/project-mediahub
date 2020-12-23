@@ -21,6 +21,7 @@ h1 {
 
 .fw-light {
     padding-top: 40px;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .py-5 {
@@ -49,4 +50,17 @@ h1 {
 
 .list-group-item {
     margin: 12px;
+}
+
+p.lead.text-muted, .p_light{
+    color:#f1f1f1!important;
+    font-size: 18px;
+}
+
+.overview-text {
+    padding-top: 50px;
+}
+
+h3 {
+    color: #f5f5f5;
 }

@@ -14,15 +14,13 @@
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="fw-light">MovieHub - Show</h1>
-                    <p class="lead text-muted">Full Details/Comments of the Movie</p>
-
                     <!-- Movie Details Section -->
-                    <h3><%= movie.name %> (<%= movie.year %>)</h3>
+                    <h1 class="fw-light"><%= movie.name %> (<%= movie.year %>)</h1>
                     <% if (movie.image) { %>
                     <img src="https://image.tmdb.org/t/p/w300/<%= movie.image %>" alt="<%= movie.name %> poster">
                     <% } %>
-                    <p class="d-flex p-2 bd-highlight"><%= movie.details %> </p>
+                    <p class="lead text-muted overview-text">Movie Overview:</p>
+                    <p class="d-flex p-2 bd-highlight p_light"><%= movie.details %> </p>
                     <h1>Add New Comment</h1>
                     <form action="/comments/newcomment/<%= movie._id %>" method="POST">
 
