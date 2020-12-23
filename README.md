@@ -39,10 +39,10 @@ As a user we want create a media hub where users can enter:
 
 <!-- - Remove user author, auto fill with logged in user -->
 
-- Redo coloring of dark gray text in overall CSS [look at subheading and overview text in particular]
+<!-- - Redo coloring of dark gray text in overall CSS [look at subheading and overview text in particular] -->
     - Update link colors
 
-- Fix comment section CSS add margin/padding
+<!-- - Fix comment section CSS add margin/padding -->
 
 - Fix fully responsive sizing
 
