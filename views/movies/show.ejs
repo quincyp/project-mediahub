@@ -19,18 +19,21 @@
 
                     <!-- Movie Details Section -->
                     <h3><%= movie.name %> (<%= movie.year %>)</h3>
-                    <img src="https://image.tmdb.org/t/p/w300/<%= movie.image %>" alt="<%= movie.name %> poster" >
+                    <% if (movie.image) { %>
+                    <img src="https://image.tmdb.org/t/p/w300/<%= movie.image %>" alt="<%= movie.name %> poster">
+                    <% } %>
                     <p><%= movie.details %> </p>
-        <h1>Add New Comment</h1>
+                    <h1>Add New Comment</h1>
                     <form action="/comments/newcomment/<%= movie._id %>" method="POST">
 
                         <p><input type="text" name="title" placeholder="Title" /></p>
 
-                        <p><textarea name="body" rows="8" cols="20" placeholder="Body" ></textarea></p>
+                        <p><textarea name="body" rows="8" cols="20" placeholder="Body"></textarea></p>
 
                         <p><input type="text" name="author" placeholder="Author" /></p>
 
-                        <button type="submit" class="btn btn-outline-info"><i class="fas fa-comment-dots"></i> Submit Comment</button>
+                        <button type="submit" class="btn btn-outline-info"><i class="fas fa-comment-dots"></i> Submit
+                            Comment</button>
                     </form>
                 </div>
             </div>
@@ -42,7 +45,7 @@
                     <!-- COMMENTS Section -->
                     <h1> Comments: </h1>
                     <% movie.comment.forEach(comment => { %>
-                    
+
 
                     <div class="list-group">
                         <div class="list-group-item list-group-item-action">
@@ -59,10 +62,12 @@
                             <div class="btn-group">
                                 <!-- Comment Edit -->
                                 <a href="/comments/<%= comment._id %>/edit"><button type="button"
-                                        class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i> Edit</button></a>
+                                        class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i>
+                                        Edit</button></a>
                                 <!-- Comment Delete -->
                                 <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                                    <button type="submit" class="btn btn-sm btn-outline-danger"> <i class="fas fa-trash-alt"></i> Delete </button>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"> <i
+                                            class="fas fa-trash-alt"></i> Delete </button>
                                 </form>
                             </div>
                         </div>

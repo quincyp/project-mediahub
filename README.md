@@ -17,7 +17,7 @@ As a user we want create a media hub where users can enter:
 
 - Look into Heroku deployment
 
---Show.ejs no image if logic needs to be added
+<!-- --Show.ejs no image if logic needs to be added -->
 <!-- --Increase text area of comment body -->
 --Make index images clickable links
 <!-- --Remove image not found fake title -->
@@ -38,9 +38,9 @@ As a user we want create a media hub where users can enter:
     <!-- -- Add as logo too -->
     <!-- -- Create/Edit/Delete icon buttons -->
 
-- Redo logout button CSS
+<!-- - Redo logout button CSS
     - remove the background
-    - align right on all nav pages
+    - align right on all nav pages -->
 
 - Delete Comment CRUDs?
     - comment index.ejs
