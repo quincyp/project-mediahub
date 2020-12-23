@@ -1,5 +1,14 @@
 # Media Hub
 
+## Technology Used
+
+1. JavaScript
+2. HTML
+3. CSS, Bootstrap
+4. EJS
+5. Github
+6. Node and modules: express, Mongoose, bcryptjs
+
 ## User Stories
 
 As a user we want create a media hub where users can enter:
@@ -10,9 +19,13 @@ As a user we want create a media hub where users can enter:
 ![wireframe](./wireframe.png "wireframe")
 
 ## Entity Relationship Diagram (ERD)
+![ERD](./ERD.drawio "ERD")
 
 
 ## Stretch Goals To-do
+
+-User story 
+
 - Verify full CRUD functionality
 
 - Look into Heroku deployment
