@@ -77,10 +77,10 @@
 
                                     <!-- Edit Button -->
                                     <a href="/movies/<%= movie._id %>/edit"><button type="button"
-                                            class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i>Edit</button></a>
+                                            class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i> Edit</button></a>
                                     <!-- Delete Button -->
                                     <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
-                                        <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" ><i class="fas fa-trash-alt"></i> Delete</button>
                                     </form>
 
                                     <!-- REVIEW: Optional text <small class="text-muted">9 mins</small> -->
