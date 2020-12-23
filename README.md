@@ -53,6 +53,8 @@ User can also add new comment on that movie or view the list of previous comment
 
 - Alphabetical sorting of the movie list.
 
-- Add TV series besides movies.
+
+- Add TV DB series besides movies.
+
 
 - Create a review scoring system using number of likes/stars/numbers.
