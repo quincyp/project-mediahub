@@ -18,6 +18,8 @@
                     <h1 class="fw-light"><%= movie.name %> (<%= movie.year %>)</h1>
                     <% if (movie.image) { %>
                     <img src="https://image.tmdb.org/t/p/w300/<%= movie.image %>" alt="<%= movie.name %> poster">
+                    <% } else {%>
+                    <img src="/resources/cinema_bg.png" alt="<%= movie.name %> poster">
                     <% } %>
                     <p class="lead text-muted overview-text">Movie Overview:</p>
                     <p class="d-flex p-2 bd-highlight p_light"><%= movie.details %> </p>
