@@ -60,9 +60,18 @@ router.post("/", async function (req, res) {
         
         const request = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=371aeeb1d61735a40fa670f07fbd08aa&language=en-US&query=${req.body.name}&page=1&include_adult=false`)
         const json = await request.json();
+        console.log("*******************");
+        console.log("*******************");
+        console.log(json);
+        console.log("*******************");
+        console.log("*******************");
+            req.body.name = req.body.name.toUpperCase();        
         if(json.results.length !== 0) {
             req.body.image = json.results[0].poster_path;
+            req.body.details = json.results[0].overview;
+            req.body.year = new Date(json.results[0].release_date).getFullYear();
         }
+        console.log(req.body);
         // REVIEW: check json.results[0] of .overview and .release_date
         await db.Movie.create(req.body);
         return res.redirect("/movies");
