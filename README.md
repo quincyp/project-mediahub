@@ -7,7 +7,7 @@
 ###     3. CSS, Bootstrap
 ###     4. EJS
 ###     5. Github
-###     6. Node and modules: express, Mongoose, bcryptjs
+###     6. Node and modules: express, Mongoose, bcryptjs, fetch
 
 
 # User Stories
