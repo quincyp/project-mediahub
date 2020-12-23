@@ -24,11 +24,11 @@
         <h1>Add New Comment</h1>
                     <form action="/comments/newcomment/<%= movie._id %>" method="POST">
 
-                        <p><input type="text" name="title" placeholder="title" /></p>
+                        <p><input type="text" name="title" placeholder="Title" /></p>
 
-                        <p><input type="text" name="body" placeholder="body" /></p>
+                        <p><textarea name="body" rows="8" cols="20" placeholder="Body" ></textarea></p>
 
-                        <p><input type="text" name="author" placeholder="author" /></p>
+                        <p><input type="text" name="author" placeholder="Author" /></p>
 
                         <button type="submit" class="btn btn-outline-info"><i class="fas fa-comment-dots"></i> Submit Comment</button>
                     </form>

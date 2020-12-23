@@ -18,12 +18,14 @@ As a user we want create a media hub where users can enter:
 - Look into Heroku deployment
 
 --Show.ejs no image if logic needs to be added
---Increase text area of comment body
+<!-- --Increase text area of comment body -->
 --Make index images clickable links
 <!-- --Remove image not found fake title -->
 <!-- --Add login CSS -->
 <!-- --Add register CSS -->
 <!-- --Details text box edit/new -->
+
+- Remove user author, auto fill with logged in user
 
 - Redo coloring of dark gray text in overall CSS [look at subheading and overview text in particular]
     - Update link colors
@@ -32,9 +34,9 @@ As a user we want create a media hub where users can enter:
 
 - Fix fully responsive sizing
 
-- Add Font Awesome Icons
-    -- Add as logo too
-    -- Create/Edit/Delete icon buttons
+<!-- - Add Font Awesome Icons -->
+    <!-- -- Add as logo too -->
+    <!-- -- Create/Edit/Delete icon buttons -->
 
 - Redo logout button CSS
     - remove the background
