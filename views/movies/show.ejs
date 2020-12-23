@@ -30,7 +30,7 @@
 
                         <p><input type="text" name="author" placeholder="author" /></p>
 
-                        <input type="submit" value="Submit Comment" />
+                        <button type="submit" class="btn btn-outline-info"><i class="fas fa-comment-dots"></i> Submit Comment</button>
                     </form>
                 </div>
             </div>
@@ -59,10 +59,10 @@
                             <div class="btn-group">
                                 <!-- Comment Edit -->
                                 <a href="/comments/<%= comment._id %>/edit"><button type="button"
-                                        class="btn btn-sm btn-outline-secondary">Edit</button></a>
+                                        class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i> Edit</button></a>
                                 <!-- Comment Delete -->
                                 <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                                    <input type="submit" class="btn btn-sm btn-outline-danger" value="Delete">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"> <i class="fas fa-trash-alt"></i> Delete </button>
                                 </form>
                             </div>
                         </div>
