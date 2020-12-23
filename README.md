@@ -21,7 +21,7 @@ As a user we want create a media hub where users can enter:
 --Make index images clickable links
 --Remove image not found fake title
 <!-- --Add login CSS -->
---Add register CSS
+<!-- --Add register CSS -->
 <!-- --Details text box edit/new -->
 --Increase text area of comment body
 
