@@ -26,7 +26,7 @@
     <ul>
       <% comments.forEach(comment => { %>
       <li>
-        <a href="/comments/<%= comment._id %>"> <%= comment.title %>--<%= comment.body %>--<%= comment.author %></a>
+        <a href="/comments/<%= comment._id %>"> <%= comment.title %>--<%= comment.body %>--<%= user.username %></a>
       </li>
       <% }) %>
     </ul>

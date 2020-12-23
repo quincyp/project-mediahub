@@ -22,15 +22,13 @@
                     <% if (movie.image) { %>
                     <img src="https://image.tmdb.org/t/p/w300/<%= movie.image %>" alt="<%= movie.name %> poster">
                     <% } %>
-                    <p><%= movie.details %> </p>
+                    <p class="d-flex p-2 bd-highlight"><%= movie.details %> </p>
                     <h1>Add New Comment</h1>
                     <form action="/comments/newcomment/<%= movie._id %>" method="POST">
 
                         <p><input type="text" name="title" placeholder="Title" /></p>
 
                         <p><textarea name="body" rows="8" cols="20" placeholder="Body"></textarea></p>
-
-                        <p><input type="text" name="author" placeholder="Author" /></p>
 
                         <button type="submit" class="btn btn-outline-info"><i class="fas fa-comment-dots"></i> Submit
                             Comment</button>
@@ -54,7 +52,7 @@
                                 <a href="/comments/<%= comment._id %>">
                                     <h5 class="mb-1"><%= comment.title %> </h5>
                                 </a>
-                                <small class="text-muted">by <%=comment.author%></small>
+                                <small class="text-muted">by <%=user.username%></small>
                             </div>
 
                             <p class="mb-1"><%=comment.body%></p>

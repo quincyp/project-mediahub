@@ -19,13 +19,13 @@ As a user we want create a media hub where users can enter:
 
 <!-- --Show.ejs no image if logic needs to be added -->
 <!-- --Increase text area of comment body -->
---Make index images clickable links
+--Make index images clickable links (tried wrapping img in </a> not working!)
 <!-- --Remove image not found fake title -->
 <!-- --Add login CSS -->
 <!-- --Add register CSS -->
 <!-- --Details text box edit/new -->
 
-- Remove user author, auto fill with logged in user
+<!-- - Remove user author, auto fill with logged in user -->
 
 - Redo coloring of dark gray text in overall CSS [look at subheading and overview text in particular]
     - Update link colors

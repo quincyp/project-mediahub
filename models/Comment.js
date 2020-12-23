@@ -11,7 +11,7 @@ const commentSchema = mongoose.Schema({
     },
     author: {
         type: String,
-        required: true
+        required: false
     },
     movie: {
         type: mongoose.Schema.Types.ObjectId,
