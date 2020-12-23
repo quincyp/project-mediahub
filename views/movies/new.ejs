@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New</title>
 
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="/styles/main.css">
-    <!-- Link Scripts -->
-    <script src="/scripts/app.js"></script>
+<!-- Head -->
+<% const context = {title: "Add New"} %> 
+<%- include("../includes/_head.ejs", context) %>
 
-</head>
 <body>
-    <a href="/">Home</a>
-    <a href="/movies/">View All</a>
-    <a href="/movies/new">Add New Title</a>
-    <h1>Movie Hub - Add New</h1>
     
-    <form action="/movies" method="POST">
-        <p>
-            <input type="text" name="name" placeholder="Movie Name" />
-        </p>
-        <p>
-            <input type="text" name="details" placeholder="Movie Details" />
-        </p>
-        <p>
-            <input type="text" name="year" placeholder="Movie Year" />
-        </p>
+    <!-- NavBar -->
+    <%- include("../includes/_nav.ejs") %>
 
-        <input type="submit" value="Create" />
-    </form>
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">MovieHub - Add New</h1>
+                <p class="lead text-muted">Add A New Movie</p>
+
+                <!-- Add New Form -->
+                <form action="/movies" method="POST">
+                    <p>
+                        <input type="text" name="name" placeholder="Movie Name" />
+                    </p>
+                    <p>
+                        <textarea name="details" rows="8" cols="20" placeholder="Movie Details"></textarea>
+                    </p>
+                    <p>
+                        <input type="text" name="year" placeholder="Movie Year" />
+                    </p>
+            
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="far fa-plus-square"></i> Create</button>
+                </form>
+
+            </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

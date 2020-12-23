@@ -1,23 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Specific</title>
 
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="/styles/main.css">
-    <!-- Link Scripts -->
-    <script src="/scripts/app.js"></script>
+<!-- Head -->
+<% const context = {title: "Show"} %>
+<%- include("../includes/_head.ejs", context) %>
 
-</head>
 <body>
-    <a href="/">Home</a>
-    <a href="/movies/">View All</a>
-    <a href="/movies/new">Add New Title</a>
-    <h1>Movie Hub - Show</h1>
-    
-    <h3><%= movie.name %> <%= movie.year %></h3>
-    <p><%= movie.details %></p>
+
+    <!-- NavBar -->
+    <%- include("../includes/_nav.ejs") %>
+
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <!-- Movie Details Section -->
+                    <h1 class="fw-light"><%= movie.name %> (<%= movie.year %>)</h1>
+                    <% if (movie.image) { %>
+                    <img src="https://image.tmdb.org/t/p/w300/<%= movie.image %>" alt="<%= movie.name %> poster">
+                    <% } %>
+                    <p class="lead text-muted overview-text">Movie Overview:</p>
+                    <p class="d-flex p-2 bd-highlight p_light"><%= movie.details %> </p>
+                    <h1>Add New Comment</h1>
+                    <form action="/comments/newcomment/<%= movie._id %>" method="POST">
+
+                        <p><input type="text" name="title" placeholder="Title" /></p>
+
+                        <p><textarea name="body" rows="8" cols="20" placeholder="Body"></textarea></p>
+
+                        <button type="submit" class="btn btn-outline-info"><i class="fas fa-comment-dots"></i> Submit
+                            Comment</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <!-- COMMENTS Section -->
+                    <h1> Comments: </h1>
+                    <% movie.comment.forEach(comment => { %>
+
+
+                    <div class="list-group">
+                        <div class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <!-- Comment link -->
+                                <a href="/comments/<%= comment._id %>">
+                                    <h5 class="mb-4"><%= comment.title %> </h5>
+                                </a>
+                                <small class="text-muted"><i class="fas fa-user"></i> <%=user.username%></small>
+                            </div>
+
+                            <p class="mb-4"><%=comment.body%></p>
+
+                            <div class="btn-group d-flex justify-content-between">
+                                <!-- Comment Edit -->
+                                <a href="/comments/<%= comment._id %>/edit"><button type="button"
+                                        class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i>
+                                        Edit</button></a>
+                                <!-- Comment Delete -->
+                                <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger"> <i
+                                            class="fas fa-trash-alt"></i> Delete </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>

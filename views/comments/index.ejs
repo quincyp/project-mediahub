@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+<% const context = {title: "Comments"} %> 
+<%- include("../includes/_head.ejs", context) %>
+
+<body>
+  <nav>
+    <h1>Comment Details</h1>
+    <ul>
+      <li>
+        <a href="/movies">Movies</a>
+      </li>
+      <li>
+        <a href="/comments">Comments</a>
+      </li>
+      <li>
+        <a href="/comments/new">Add a new comment</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>List of comments</h2>
+    <ul>
+      <% comments.forEach(comment => { %>
+      <li>
+        <a href="/comments/<%= comment._id %>"> <%= comment.title %>--<%= comment.body %>--<%= user.username %></a>
+      </li>
+      <% }) %>
+    </ul>
+
+
+  </main>
+</body>
+
+</html>

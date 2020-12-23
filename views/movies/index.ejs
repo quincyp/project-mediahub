@@ -1,34 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List Index</title>
 
-    <!-- Link CSS -->
-    <link rel="stylesheet" href="/styles/main.css">
-    <!-- Link Scripts -->
-    <script src="/scripts/app.js"></script>
+<!-- Head -->
+<% const context = {title: "Index"} %>
+<%- include("../includes/_head.ejs", context) %>
+<script src="https://api.themoviedb.org/3/movie/550?api_key=371aeeb1d61735a40fa670f07fbd08aa"></script>
 
-</head>
 <body>
-    <a href="/">Home</a>
-    <a href="/movies/">View All</a>
-    <a href="/movies/new">Add New Title</a>
-    <h1>Movie Hub - Index</h1>
-    
-    <h3>List of All Movies</h3>
-    <ul>
-        <% movies.forEach(movie => { %>
-            <li>
-                <a href="/movies/<%= movie._id %>"><%= movie.name %></a>
-                <a href="/movies/<%= movie._id %>/edit">Edit</a>
-                <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete"/>
-                </form>
-            
-            </li>
-        <% }) %>
-    </ul>
+
+    <!-- NavBar -->
+    <%- include("../includes/_nav.ejs") %>
+
+    <main>
+        <!-- Top Section -->
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">MovieHub - Index</h1>
+                    <p class="lead text-muted">List of all movies.</p>
+                    <p>
+                        <!-- REVIEW: can be button or not already in NAV <a href="#" class="btn btn-primary my-2">View All?</a> -->
+                        <!-- REVIEW: can be button or not already in NAV <a href="#" class="btn btn-secondary my-2">Need this?</a> -->
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="album py-5">
+            <!-- removed bg-light -->
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                    <!-- Each Card Element Here -->
+                    <% movies.forEach(movie => { %>
+                    <div class="col">
+                        <div class="card shadow-sm">
+
+                            <% if(!movie.image){ %>
+                            <!-- No Movie Image -->
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="300"
+                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <rect width="100%" height="100%" fill="#55595c" />
+                                <!-- Thumbnail Text Here -->
+                                <a href="/movies/<%= movie._id %>">
+                                    <text x="25%" y="50%" fill="#eceeef" dy=".3em">
+                                    <%= movie.name %></text>
+                                </a>
+                            </svg>
+
+                            <% } else { %>
+                            <!-- Movie Image -->
+                            <svg class="bd-placeholder-img card-img-top" max-width="200" height="0"
+                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <a href="/movies/<%= movie._id %>">
+
+                                    <img src="https://image.tmdb.org/t/p/w200<%= movie.image %>"
+                                        alt="<%= movie.name %> poster">
+                                </a>
+                            </svg>
+
+
+                            <% } %>
+
+
+                            <!--REVIEW: Not centered, and may not make sense to link on text of image? maybe whole element? -->
+
+
+                            <div class="card-body text-center">
+                                <!-- Movie Name/Show Link Here -->
+                                <a href="/movies/<%= movie._id %>">
+                                    <p class="card-text"><%= movie.name %></p>
+                                </a>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <!-- Edit Button -->
+                                    <a href="/movies/<%= movie._id %>/edit"><button type="button"
+                                            class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i> Edit</button></a>
+                                    <!-- Delete Button -->
+                                    <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" ><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </form>
+
+                                    <!-- REVIEW: Optional text <small class="text-muted">9 mins</small> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-muted py-5">
+        <div class="container">
+            <p class="float-end mb-1">
+                <a href="#" class="text-muted"><i class="fas fa-arrow-up"></i> Back To Top</a>
+            </p>
+        </div>
+    </footer>
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 const express = require("express");
 
 const router = express.Router();
+const fetch = require("node-fetch");
 
 //internal modules
 const db = require("../models");
@@ -42,7 +43,8 @@ router.get("/new", function (req, res) {
 // Show
 router.get("/:id", async function (req, res) {
     try {
-        const foundMovie = await db.Movie.findById(req.params.id).populate("movies");
+        const foundMovie = await db.Movie.findById(req.params.id).populate("comment");
+        console.log(foundMovie);
         const context = {
             movie: foundMovie
         };
@@ -55,6 +57,22 @@ router.get("/:id", async function (req, res) {
 // Create
 router.post("/", async function (req, res) {
     try {
+        
+        const request = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=371aeeb1d61735a40fa670f07fbd08aa&language=en-US&query=${req.body.name}&page=1&include_adult=false`)
+        const json = await request.json();
+        console.log("*******************");
+        console.log("*******************");
+        console.log(json);
+        console.log("*******************");
+        console.log("*******************");
+            req.body.name = req.body.name.toUpperCase();        
+        if(json.results.length !== 0) {
+            req.body.image = json.results[0].poster_path;
+            req.body.details = json.results[0].overview;
+            req.body.year = new Date(json.results[0].release_date).getFullYear();
+        }
+        console.log(req.body);
+        // REVIEW: check json.results[0] of .overview and .release_date
         await db.Movie.create(req.body);
         return res.redirect("/movies");
     } catch (err) {
@@ -93,7 +111,16 @@ router.put("/:id", function (req, res) {
 router.delete("/:id", async function (req, res) {
 
     try {
+
         const deletedMovie = await db.Movie.findByIdAndDelete(req.params.id);
+        console.log(deletedMovie);
+        await db.Comment.deleteMany({
+            _id:{
+                $in:deletedMovie.comment
+            }});
+
+
+        //await db.Comment.remove({comment:deletedMovie._id});
         return res.redirect("/movies");
     } catch (err) {
         return res.send(err);

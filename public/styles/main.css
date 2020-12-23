@@ -1,0 +1,66 @@
+body {
+    background-color: #1f1f1f;
+    background-image: url("../resources/movie-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* color: whitesmoke; */
+    min-height: 100vh;
+    min-width: 100vw;
+    /* display: flex; */
+    /* align-items: center; */
+    /* backdrop-filter: brightness(30%) saturate(30%); */
+    /* flex-flow: row wrap; */
+    /* flex-direction: column; */
+    /* text-align: center; */
+}
+
+h1 {
+    color: whitesmoke;
+}
+
+.fw-light {
+    padding-top: 40px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.py-5 {
+    /* margin-top: 3rem; */
+    /* padding-top: 3rem!important; */
+    padding-bottom: 0.1rem !important;
+}
+
+#login {
+    margin-top: 20vw;
+    margin-left: 20vw;
+}
+
+#homeLogin {
+    position: relative;
+    position: center;
+}
+
+#logoutButton {
+    background-color: transparent;
+    border-width: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: #fff;
+    font-weight: 700;
+}
+
+.list-group-item {
+    margin: 12px;
+}
+
+p.lead.text-muted, .p_light{
+    color:#f1f1f1!important;
+    font-size: 18px;
+}
+
+.overview-text {
+    padding-top: 50px;
+}
+
+h3 {
+    color: #f5f5f5;
+}

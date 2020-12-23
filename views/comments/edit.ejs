@@ -2,7 +2,7 @@
 <html lang="en">
 
 <!-- Head -->
-<% const context = {title: "Edit"} %>
+<% const context = {title: "Edit"} %> 
 <%- include("../includes/_head.ejs", context) %>
 
 <body>
@@ -15,21 +15,16 @@
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1 class="fw-light">MovieHub - Edit</h1>
-                    <p class="lead text-muted">Edit the Movie</p>
+                    <p class="lead text-muted">Edit the Comment</p>
 
                     <!-- Edit Form -->
-                    <form action="/movies/<%= movie._id %>?_method=PUT" method="POST">
+                    <form action="/comments/<%= comment._id %>?_method=PUT" method="POST">
                         <p>
-                            <input type="text" name="name" placeholder="Name"value="<%=movie.name%>" />
+                            <input type="text" name="title" value="<%=comment.title%>" />
                         </p>
                         <p>
-                            <textarea name="details" placeholder="Details" rows="8" cols="20"><%=movie.details%></textarea>
-                            
+                            <input type="text" name="body" value="<%=comment.body%>" />
                         </p>
-                        <p>
-                            <input type="text" name="year" placeholder="Year" value="<%=movie.year%>" />
-                        </p>
-
                         <input type="submit" class="btn btn-sm btn-primary" value="Submit Edit" />
                     </form>
                 </div>
