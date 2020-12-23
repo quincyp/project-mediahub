@@ -19,7 +19,7 @@ As a user we want create a media hub where users can enter:
 ![wireframe](./wireframe.png "wireframe")
 
 ## Entity Relationship Diagram (ERD)
-![ERD](./public/resources/ERD.png "ERD")
+![ERD](./public/resources/ERD1.png "ERD")
 
 ## Stretch Goals To-do
 
