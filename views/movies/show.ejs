@@ -50,14 +50,14 @@
                             <div class="d-flex w-100 justify-content-between">
                                 <!-- Comment link -->
                                 <a href="/comments/<%= comment._id %>">
-                                    <h5 class="mb-1"><%= comment.title %> </h5>
+                                    <h5 class="mb-4"><%= comment.title %> </h5>
                                 </a>
-                                <small class="text-muted">by <%=user.username%></small>
+                                <small class="text-muted"><i class="fas fa-user"></i> <%=user.username%></small>
                             </div>
 
-                            <p class="mb-1"><%=comment.body%></p>
+                            <p class="mb-4"><%=comment.body%></p>
 
-                            <div class="btn-group">
+                            <div class="btn-group d-flex justify-content-between">
                                 <!-- Comment Edit -->
                                 <a href="/comments/<%= comment._id %>/edit"><button type="button"
                                         class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i>

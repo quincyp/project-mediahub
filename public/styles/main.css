@@ -46,3 +46,7 @@ h1 {
     color: #fff;
     font-weight: 700;
 }
+
+.list-group-item {
+    margin: 12px;
+}
