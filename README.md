@@ -57,4 +57,10 @@ User can also add new comment on that movie or view the list of previous comment
 - Add TV DB series besides movies.
 
 
+- Add user list of added movies and comments.
+
+- Enable movie/comment details editing/deleting for creating user only.
+
+- Notify created user via email when new comment has posted on their added media.
+
 - Create a review scoring system using number of likes/stars/numbers.
