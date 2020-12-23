@@ -1,6 +1,7 @@
 const express = require("express");
 
 const router = express.Router();
+const fetch = require("node-fetch");
 
 //internal modules
 const db = require("../models");
@@ -56,6 +57,13 @@ router.get("/:id", async function (req, res) {
 // Create
 router.post("/", async function (req, res) {
     try {
+        
+        const request = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=371aeeb1d61735a40fa670f07fbd08aa&language=en-US&query=${req.body.name}&page=1&include_adult=false`)
+        const json = await request.json();
+        if(json.results.length !== 0) {
+            req.body.image = json.results[0].poster_path;
+        }
+        // REVIEW: check json.results[0] of .overview and .release_date
         await db.Movie.create(req.body);
         return res.redirect("/movies");
     } catch (err) {

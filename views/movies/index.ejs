@@ -4,7 +4,7 @@
 <!-- Head -->
 <% const context = {title: "Index"} %>
 <%- include("../includes/_head.ejs", context) %>
-
+<script src="https://api.themoviedb.org/3/movie/550?api_key=371aeeb1d61735a40fa670f07fbd08aa"></script>
 <body>
 
     <!-- NavBar -->
@@ -34,15 +34,29 @@
                     <% movies.forEach(movie => { %>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="25%" y="50%" fill="#eceeef"
+                            <% if(!movie.image){ %>
+                            <!-- No Movie Image -->
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="304"
+                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                            preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <rect width="100%" height="93%" fill="#55595c" /><text x="25%" y="50%" fill="#eceeef"
                                     dy=".3em">
-                                    <!-- Thumbnail Text Here -->
-                                    <a href="/movies/<%= movie._id %>">
-                                        <%= movie.name %> Thumbnail</text>
+                            <!-- Thumbnail Text Here -->
+                            <a href="/movies/<%= movie._id %>">
+                                <%= movie.name %> Thumbnail Not Found</text>
+
+                            <% } else { %>
+                            <!-- Movie Image -->
+                            <svg class="bd-placeholder-img card-img-top" max-width="200" height="5"
+                            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                            preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <img src="https://image.tmdb.org/t/p/w200<%= movie.image %>" alt="<%= movie.name %> poster">
+
+                            
+                            <% } %>
+                                <title>Placeholder</title>
+                                
+                                    
                                 <!--REVIEW: Not centered, and may not make sense to link on text of image? maybe whole element? -->
                                 </a>
                             </svg>
