@@ -10,3 +10,30 @@ As a user we want create a media hub where users can enter:
 ![wireframe](./wireframe.png "wireframe")
 
 ## Entity Relationship Diagram (ERD)
+
+
+## Stretch Goals To-do
+- Verify full CRUD functionality
+
+- Look into Heroku deployment
+
+- Redo coloring of dark gray text in overall CSS [look at subheading and overview text in particular]
+    - Update link colors
+
+- Fix comment section CSS add margin/padding
+
+- Fix fully responsive sizing
+
+- Add Font Awesome Icons
+    -- Add as logo too
+    -- Create/Edit/Delete icon buttons
+
+- Redo logout button CSS
+    - remove the background
+    - alight right on all nav pages
+
+- Delete Comment CRUDs?
+    - comment index.ejs
+    - comment show.ejs
+
+- Look into new fonts?
